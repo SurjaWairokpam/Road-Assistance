@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1002295731365",
+    "project_id": "roadassistance-f1617",
+    "storage_bucket": "roadassistance-f1617.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1002295731365:android:87a3f006c6ab7127d3d94c",
+        "android_client_info": {
+          "package_name": "com.example.roadassistance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1002295731365-df0gpho0rh1cp9u8fnkbl69r5peskfgi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg5dtV_pEaQnJokHq73UrW2rp907eIb1Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1002295731365-df0gpho0rh1cp9u8fnkbl69r5peskfgi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
