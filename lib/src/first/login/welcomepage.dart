@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:roadassistance/dashboard.dart';
 import 'package:roadassistance/src/first/login/registration.dart';
@@ -10,113 +8,114 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: NetworkImage(
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSBoWp5H-1OynNs8dqwt4-L-rvkq8x2x2W5qs-7zCaBeIizKu5STleVyYD3vhUqAXDi2c&usqp=CAU"),
-                fit: BoxFit.cover)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
-                  Text(
-                    "Welcome Back to",
-                    style: TextStyle(color: Colors.lightBlue, fontSize: 15),
-                  ),
-                  Text(
-                    "Road Assistance",
-                    style: TextStyle(color: Colors.blueGrey, fontSize: 40),
-                  )
-                ],
-              ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: const <Widget>[
+                Text(
+                  "Welcome to",
+                  style: TextStyle(
+                      color: Colors.lightBlue,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "Road Assistance",
+                  style: TextStyle(
+                      color: Colors.blueGrey,
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold),
+                )
+              ],
             ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: Container(
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(60),
-                        topRight: Radius.circular(60))),
-                child: Padding(
-                  padding: const EdgeInsets.all(30),
-                  child: Column(
-                    children: <Widget>[
-                      const SizedBox(
-                        height: 60,
-                      ),
-                      Column(
-                        children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.all(10),
-                            child: PhoneNumberWidget(),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(10),
-                            child: PasswordWidget(),
-                          ),
-                        ],
-                      ),
-                      const Padding(padding: EdgeInsets.all(10)),
-                      Container(
-                          height: 50,
-                          margin: const EdgeInsets.symmetric(horizontal: 80),
-                          child: SizedBox(
-                            width: double.infinity,
+          ),
+          const Image(
+            image: AssetImage(
+              'assets/images/logo.jpg',
+            ),
+            height: 150,
+            width: 150,
+          ),
+          const SizedBox(height: 20),
+          Expanded(
+            child: Container(
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(60),
+                      topRight: Radius.circular(60))),
+              child: Padding(
+                padding: const EdgeInsets.all(30),
+                child: Column(
+                  children: <Widget>[
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Container(
+                          padding: const EdgeInsets.all(10),
+                          child: PhoneNumberWidget(),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(10),
+                          child: PasswordWidget(),
+                        ),
+                      ],
+                    ),
+                    const Padding(padding: EdgeInsets.all(10)),
+                    Container(
+                        height: 50,
+                        margin: const EdgeInsets.symmetric(horizontal: 80),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const DashboardUi()));
+                              },
+                              child: const Text("LogIn")),
+                        )),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    const Text(
+                      "Does not have account ",
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
                             child: ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => DashboardUi()));
-                                },
-                                child: Text("LogIn")),
-                          )),
-                      const SizedBox(
-                        height: 150,
-                      ),
-                      const Text(
-                        "Does not have account ",
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        children: [
-                          Expanded(
-                              child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const Registration("")));
-                            },
-                            style: ElevatedButton.styleFrom(
-                              fixedSize: const Size(70, 50),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                            ),
-                            child: const Text('SignUp'),
-                          )),
-                        ],
-                      )
-                    ],
-                  ),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const Registration("")));
+                          },
+                          style: ElevatedButton.styleFrom(
+                              fixedSize: const Size(30, 50),
+                              backgroundColor: Colors.deepOrange),
+                          child: const Text('SignUp'),
+                        )),
+                      ],
+                    )
+                  ],
                 ),
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -130,19 +129,23 @@ class PasswordWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Form(
-      child: Column(
-        children: <Widget>[
-          Text(
-            "Password",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-          ),
-          TextFormField(
-            decoration: const InputDecoration(
+      child: Form(
+        child: Column(
+          children: <Widget>[
+            const Text(
+              "Password",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+            ),
+            TextFormField(
+              obscureText: true,
+              decoration: const InputDecoration(
                 hintText: "Password",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none),
-          )
-        ],
+                border: InputBorder.none,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -156,20 +159,21 @@ class PhoneNumberWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Form(
-      child: Column(
-        children: <Widget>[
-          const Text(
-            "Email",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-          ),
-          TextFormField(
-            decoration: const InputDecoration(
-                hintText: "Email or Phone number",
-                hintStyle: TextStyle(color: Colors.grey),
-                
-                border: InputBorder.none),
-          )
-        ],
+      child: Form(
+        child: Column(
+          children: <Widget>[
+            const Text(
+              "Email",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+            ),
+            TextFormField(
+              decoration: const InputDecoration(
+                  hintText: "Email or Phone number",
+                  hintStyle: TextStyle(color: Colors.grey),
+                  border: InputBorder.none),
+            )
+          ],
+        ),
       ),
     );
   }
